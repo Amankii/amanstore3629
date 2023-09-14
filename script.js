@@ -1,30 +1,30 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+/*
 
-    const submit = document.querySelector('#submit');
-    const text = document.querySelector('#text');
- 
-    submit.disabled = true;
+    let availableKeywords  = ["Tasbeeh","Al-Qur\"an","Fashion","The bulb","QETC"];
+    const inputBox = document.querySelector('#input-box');
+    const resultsBox = document.querySelector('#result-box');
 
-    text.onkeyup = ()=> {
-        if(text.value.length > 0){
-            submit.disabled = false;
-        }else{
-            submit.disabled = true;
-        }
-    };
 
-    document.querySelector('form').onsubmit = ()=> {
+    inputBox.onkeyup = () => {
+        let result = [];
+        let input = inputBox.value;
 
-        const li = document.createElement('li');
+        if(input.length) {
+            result = availableKeywords.filter((keyword)=>{
+            return  keyword.toLowerCase().includes(input.toLowerCase());
+            });
 
-        li.innerHTML = text.value;
+            console.log(result);
+            };
+            display(result);
+        };
 
-        document.querySelector('ol').append(li);
 
-        text.value = '';
-        submit.disabled = true;
-        return false;
+function display(result){
+    const content = result.map((list)=>{
+        return "<li>" + list + "</li>";
+    });
 
-    }; 
-
-});
+    resultsBox.innerHTML = "<ul>" + content + "</ul>"; 
+}
+*/
